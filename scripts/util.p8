@@ -3,6 +3,10 @@ function deg2rad(deg)
 	return deg * rad
 end
 
+function aspr(x, y, sx, sy, sw, sh, scale, flip)
+	sspr(sx * 8, sy * 8, sw * 8, sh * 8, x, y, sw * 8 * scale, sh * 8 * scale, flip, false)
+end
+
 -- from my old projects
 function move_towards(from,to,delta)if abs(to-from)<=delta then;return to;end;return from+sgn(to-from)*delta;end
 function roll_all(min,max)return flr(rnd(max-min))+min;end
