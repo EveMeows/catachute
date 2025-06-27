@@ -6,6 +6,10 @@ function game:init()
 			add(spawn.entities, edge.new(1, 4))
 		end),
 
+		floaty_spawner = spawner.new(3.5, function (spawn)
+			add(spawn.entities, floaty.new(1, 4))
+		end),
+
 		metres = 0,
 		travel = {
 			time = 0,
@@ -22,6 +26,7 @@ function game:update()
 	car:update()
 
 	data.edge_spawner:update()
+	data.floaty_spawner:update()
 end
 
 function game:draw()
@@ -31,4 +36,5 @@ function game:draw()
 	car:draw()
 
 	data.edge_spawner:draw()
+	data.floaty_spawner:draw()
 end
