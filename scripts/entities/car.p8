@@ -4,7 +4,7 @@ car = {}
 function car:init()
 	self.data = {
 		sp = 1, spd = 2,
-		x = 60, y = 20,
+		x = 60, y = 30,
 		vx = 0, vy = 0,
 		acc = 0.3, deacc = 0.1,
 		flp = false,
@@ -14,6 +14,8 @@ function car:init()
 			val = 0, max = 5,
 			spd = 1.5, deacc = 1,
 		},
+
+		body = {x=0,y=0,w=0,h=0},
 	}
 end
 
@@ -57,6 +59,11 @@ function car:update()
 	-- sinewave
 	local sy = sin(t() + 20) * 0.3
 	data.y += sy
+
+	data.body = {
+		x = data.x, y = data.y,
+		w = 7, h = 7
+	}
 end
 
 function car:draw()
@@ -74,4 +81,7 @@ function car:draw()
 
 	-- car
 	spr(data.sp, data.x, data.y, 1, 1, data.flp, false)
+
+	-- collider
+	-- rect(data.body.x, data.body.y, data.body.x + data.body.w, data.body.y + data.body.h, 8)
 end

@@ -7,6 +7,15 @@ function aspr(x, y, sx, sy, sw, sh, scale, flip)
 	sspr(sx * 8, sy * 8, sw * 8, sh * 8, x, y, sw * 8 * scale, sh * 8 * scale, flip, false)
 end
 
+function aabb_check(a, b)
+  return not (
+    a.x + a.w < b.x or
+    a.x > b.x + b.w or
+    a.y + a.h < b.y or
+    a.y > b.y + b.h
+  )
+end
+
 -- from my old projects
 function move_towards(from,to,delta)if abs(to-from)<=delta then;return to;end;return from+sgn(to-from)*delta;end
 function roll_all(min,max)return flr(rnd(max-min))+min;end
